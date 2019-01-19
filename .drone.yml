@@ -1,6 +1,11 @@
 kind: pipeline
 name: default
 
+workspace:
+  base: /go
+  path: src/github.com/jnummelin/
+
+
 steps:
 - name: build
   image: golang:1.11
