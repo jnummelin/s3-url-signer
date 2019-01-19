@@ -3,7 +3,7 @@
 # To easily cross-compile binaries
 go get github.com/mitchellh/gox
 
-VERSION=$(git describe --all --exact-match `git rev-parse HEAD` | grep tags | sed 's/tags\///')
+VERSION=${DRONE_TAG:-head}
 GIT_COMMIT=$(git rev-list -1 HEAD)
 
 gox -output="output/{{.Dir}}_{{.OS}}_{{.Arch}}" \
