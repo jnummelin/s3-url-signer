@@ -3,7 +3,7 @@ name: default
 
 workspace:
   base: /go
-  path: src/github.com/jnummelin/
+  path: src/github.com/jnummelin/s3-url-signer
 
 
 steps:
@@ -13,9 +13,7 @@ steps:
   - mkdir -p /go/bin
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - dep ensure -vendor-only
-  - pwd
-  - ls -lah
-  - build.sh # just try to build, no real tests exist :)
+  - ./build.sh # just try to build, no real tests exist :)
 
 - name: publish
   image: plugins/github-release
