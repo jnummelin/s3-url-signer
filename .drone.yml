@@ -1,0 +1,22 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: golang:1.11
+  commands:
+  - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+  - dep ensure -vendor-only
+  - build.sh # just try to build, no real tests exist :)
+
+- name: publish
+  image: plugins/github-release
+  settings:
+    api_key: xxxxxxxx
+    files:
+      - output/*
+    draft: true # Add changelog and publish manually
+    checksum:
+      - sha256
+  when:
+    event: tag
