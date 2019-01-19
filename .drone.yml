@@ -10,6 +10,7 @@ steps:
 - name: build
   image: golang:1.11
   commands:
+  - mkdir -p /go/bin
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - dep ensure -vendor-only
   - build.sh # just try to build, no real tests exist :)
