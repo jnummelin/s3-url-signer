@@ -13,6 +13,8 @@ steps:
   - mkdir -p /go/bin
   - curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
   - dep ensure -vendor-only
+  - pwd
+  - ls -lah
   - build.sh # just try to build, no real tests exist :)
 
 - name: publish
